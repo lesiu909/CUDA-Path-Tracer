@@ -24,7 +24,6 @@ __device__ float hit_sphere(const sphere& s, const ray& r) {
 }
 
 __global__ void render(int width, int hight, float *fb, sphere *s, int num_spheres) {
-    //chuj wie dlaczego *
     int col = threadIdx.x + blockIdx.x * blockDim.x;
     int line = threadIdx.y + blockIdx.y * blockDim.y;
     if ((col >= width) || (line >= hight)) return;
